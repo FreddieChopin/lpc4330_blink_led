@@ -12,7 +12,7 @@
 # this makefile is based strongly on many examples found in the network
 #
 # \author Freddie Chopin, http://www.freddiechopin.pl http://www.distortec.com
-# \date 2013-03-30
+# \date 2013-03-31
 #
 
 #----------------------------------------------------------------------------------------------------------------------#
@@ -46,7 +46,7 @@ LD_SCRIPT = LPC4330_50_SPIFI_4MB.ld
 OUT_DIR = out
 
 # global definitions for C++, C and ASM (e.g. "symbol_with_value=0xDEAD symbol_without_value")
-GLOBAL_DEFS =
+GLOBAL_DEFS = CORE_M4
 
 # C++ definitions
 CXX_DEFS =
@@ -59,7 +59,7 @@ AS_DEFS =
 
 # include directories (absolute or relative paths to additional folders with
 # headers, current folder is always included)
-INC_DIRS =
+INC_DIRS = inc
 
 # library directories (absolute or relative paths to additional folders with
 # libraries)
