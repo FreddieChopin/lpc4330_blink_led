@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.ui.externaltools.ProgramLaunchConfigurationType">
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.ui.externaltools.launchGroup"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="C:\Program Files\OpenOCD\openocd-0.7.0-dev-130127142934\bin-x64\openocd-x64-0.7.0-dev-130127142934.exe"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-f interface/ftdi/jtag-lock-pick_tiny_2.cfg -f lpc4330_spifi_generic.cfg -c &quot;reset_config srst_only; adapter_khz 1000; init; reset; sleep 500; halt; flash protect 0 0 last off; flash write_image erase ../out/lpc4330_blink_led.hex; reset; sleep 500; halt; shutdown;&quot;"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${workspace_loc:/lpc4330_blink_led/debug}"/>
+</launchConfiguration>
