@@ -12,8 +12,12 @@
  * chip: LPC4330
  *
  * \author Freddie Chopin, http://www.freddiechopin.pl http://www.distortec.com
- * \date 2013-03-30
+ * \date 2013-04-01
  */
+
+#include "config.h"
+
+#include "LPC43xx.h"
 
 /*---------------------------------------------------------------------------------------------------------------------+
 | global functions
@@ -21,11 +25,23 @@
 
 /**
  * \brief Main function.
+ *
+ * Configures LED's GPIO as output and keeps on blinking it forever with frequency defined via count_max variable.
  */
 
 int main(void)
 {
-	while (1);
+	volatile uint32_t count, count_max = 1000000;
+
+	LPC_GPIO_PORT->DIR[LED_GPIO] |= LED;	// configure GPIO pin as output
+
+	while (1)
+	{
+		for (count = 0; count < count_max; count++);	// delay
+		LED_bb = 1;
+		for (count = 0; count < count_max; count++);	// delay
+		LED_bb = 0;
+	}
 
 	return 0;
 }
