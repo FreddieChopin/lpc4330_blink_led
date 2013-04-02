@@ -25,6 +25,7 @@
 | local functions' declarations
 +---------------------------------------------------------------------------------------------------------------------*/
 
+static void fpu_enable(void);
 static uint32_t pll_start(const uint32_t crystal, const uint32_t frequency);
 
 /*---------------------------------------------------------------------------------------------------------------------+
@@ -34,14 +35,15 @@ static uint32_t pll_start(const uint32_t crystal, const uint32_t frequency);
 /**
  * \brief Main function.
  *
- * Starts PLL1, configures LED's GPIO as output and keeps on blinking it forever with frequency defined via count_max
- * variable.
+ * Enables FPU, starts PLL1, configures LED's GPIO as output and keeps on blinking it forever with frequency defined via
+ * count_max variable.
  */
 
 int main(void)
 {
 	volatile uint32_t count, count_max = 10000000;
 
+	fpu_enable();
 	pll_start(CRYSTAL, FREQUENCY);
 
 	LPC_GPIO_PORT->DIR[LED_GPIO] |= LED;	// configure GPIO pin as output
@@ -60,6 +62,20 @@ int main(void)
 /*---------------------------------------------------------------------------------------------------------------------+
 | local functions
 +---------------------------------------------------------------------------------------------------------------------*/
+
+/**
+ * \brief Enables FPU
+ *
+ * Enables FPU in Cortex-M4 for both privileged and user mode. This is done by enabling CP10 and CP11 coprocessors in
+ * CPACR register (possible only when in privileged mode).
+ */
+
+static void fpu_enable(void)
+{
+#if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
+	SCB->CPACR |= ((3UL << 10 * 2)|(3UL << 11 * 2));	// set CP10 and CP11 Full Access
+#endif
+}
 
 /**
  * \brief Starts the PLL1
