@@ -7,7 +7,11 @@
 
 /**
  * \file main.c
- * \brief Main application.
+ * \brief Sample LPC4330 project
+ *
+ * This file holds a very basic code for LPC4330. This code enables the FPU, enables PLL1 to achieve the highest allowed
+ * frequency (204MHz). Main code block just blinks the LED. The LED port and pin are defined in config.h file. Target
+ * core frequency and quartz crystal resonator frequency are defined there as well.
  *
  * chip: LPC4330
  *
