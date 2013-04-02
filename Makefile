@@ -12,7 +12,7 @@
 # this makefile is based strongly on many examples found in the network
 #
 # \author Freddie Chopin, http://www.freddiechopin.pl http://www.distortec.com
-# \date 2013-03-31
+# \date 2013-04-02
 #
 
 #----------------------------------------------------------------------------------------------------------------------#
@@ -46,7 +46,7 @@ LD_SCRIPT = LPC4330_50_SPIFI_4MB.ld
 OUT_DIR = out
 
 # global definitions for C++, C and ASM (e.g. "symbol_with_value=0xDEAD symbol_without_value")
-GLOBAL_DEFS = CORE_M4
+GLOBAL_DEFS = CORE_M4 CMSIS_BITPOSITIONS
 
 # C++ definitions
 CXX_DEFS =
