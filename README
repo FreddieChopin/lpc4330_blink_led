@@ -1,0 +1,19 @@
+lpc4330_blink_led
+=================
+
+Project template for NXP LPC4330, Eclipse, GCC and OpenOCD
+
+chip: LPC4330
+compiler: arm-none-eabi-gcc (GNU Tools for ARM Embedded Processors / bleeding-edge-toolchain-130207) 4.7.3 20121207
+	(prerelease)
+IDE: Eclipse Juno SR2, C/C++ GDB Hardware Debugging plugin version 7.0.0.201302132326
+OpenOCD: openocd-0.7.0-dev-130127142934
+license: Boost Software License 1.0
+
+date: 2013-04-02
+
+This package and info about it can be found on Freddie Chopin's website:
+http://www.freddiechopin.pl/
+
+GIT repository of the project
+https://github.com/freddiechopin/lpc4330_blink_led
